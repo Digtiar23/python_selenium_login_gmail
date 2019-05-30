@@ -1,0 +1,28 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
+
+#Chrome driver
+chromedriver = "C:\chromedriver_win32\chromedriver.exe"
+driver = webdriver.Chrome(chromedriver)
+
+
+#Go to gmail.com
+driver.get("https://gmail.com")
+driver.implicitly_wait(3)
+
+
+#type email and press enter button
+email_el = driver.find_element_by_id("identifierId")
+click = email_el.click()
+email_el.send_keys("example@gmail.com")
+email_el.send_keys(Keys.ENTER)
+driver.implicitly_wait(3)
+time.sleep(3)
+
+
+#type password and press enter button
+pass_el = driver.find_element_by_name("password")
+pass_el.send_keys("password123")
+click = pass_el.send_keys(Keys.ENTER)
